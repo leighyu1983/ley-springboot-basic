@@ -1,8 +1,17 @@
+server:
+  port: 8088
+
 spring:
   datasource:
-    driver-class-name: org.h2.Driver
-    schema: classpath:db/schema-h2.sql
-    data: classpath:db/data-h2.sql
-    url: jdbc:h2:mem:test
-    username: root
-    password: test
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@192.168.118.129:1521/helowin
+    username: system
+    password: system
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  typeAliasesPackage: com.ley.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
